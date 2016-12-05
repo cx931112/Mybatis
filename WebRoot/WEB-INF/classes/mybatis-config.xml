@@ -11,6 +11,7 @@
 	</typeAliases>
 	<environments default="mybatis">
 		<environment id="mybatis">
+		<!--这里type的值也可以是MANAGED,有区别  -->
 			<transactionManager type="JDBC"></transactionManager>
 			<dataSource type="POOLED">
 				<property name="driver" value="${driverClassName}" />
@@ -22,8 +23,9 @@
 		</environment>
 
 	</environments>
-	<!--需要把mapper文件配置进来  -->
+	<!--需要把mapper文件配置进来 -->
 	<mappers>
+	
 	<mapper resource="com/mybatis/mapper/UserDao.xml"/>
 	</mappers>
 </configuration>
