@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<!--设置别名,这样mapper下的paramType和resultType就不需要加包名 -->
+	<properties resource="datasource.properties"></properties>
+	<typeAliases>
+		<!--此处是交代实体类所在包的方式实现别名 （建议使用） -->
+		<package name="com.mybatis.entity" />
+		<!-- 此处是设置了具体的别名 （不推荐） -->
+		<!-- <typeAlias type="com.mybatis.entity.User" alias="User"/> -->
+	</typeAliases>
+	<environments default="mybatis">
+		<environment id="mybatis">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driverClassName}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+
+		</environment>
+
+	</environments>
+	<!--需要把mapper文件配置进来  -->
+	<mappers>
+	<mapper resource="com/mybatis/mapper/UserDao.xml"/>
+	</mappers>
+</configuration>
